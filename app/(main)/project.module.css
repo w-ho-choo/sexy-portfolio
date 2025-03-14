@@ -11,4 +11,35 @@
 }
 
 .project_container {
+  margin-top: 60px;
+}
+
+.swiper_custom_container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.swiper_navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.swiper_navigation > button {
+  display: block;
+  background-color: transparent;
+  border: none;
+  line-height: 0;
+
+  font-size: 3em;
+  color: #000;
+  cursor: pointer;
+}
+
+.swiper_navigation > button:disabled,
+.swiper_navigation > button[disabled] {
+  color: rgb(220, 220, 220);
 }

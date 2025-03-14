@@ -1,15 +1,36 @@
 'use client'
-import { motion } from 'framer-motion'
 import style from './project.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { WorkData } from '../api/project'
 import ProjectSlider from '@/components/ProjectSilder'
-import { Swiper, SwiperSlide } from 'swiper/react'
 
+import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
+import { A11y, Pagination } from 'swiper/modules'
 import 'swiper/css'
+import 'swiper/css/pagination'
+
+import { MdArrowBack, MdArrowForward } from 'react-icons/md'
 
 export default function Project() {
+  const paginationRef = useRef<HTMLDivElement | null>(null)
   const [projectData, setProjectData] = useState<WorkData[] | null>(null)
+  const [swiper, setSwiper] = useState<SwiperClass>()
+  const [isBeginning, setIsBeginning] = useState(true)
+  const [isEnd, setIsEnd] = useState(false)
+
+  const pagination = {
+    el: paginationRef.current,
+    clickable: true,
+  }
+
+  const handlePrev = () => {
+    swiper?.slidePrev()
+  }
+
+  const handleNext = () => {
+    swiper?.slideNext()
+  }
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -44,7 +65,25 @@ export default function Project() {
         project
       </motion.h1>
       <div className={style.project_container}>
-        <Swiper>
+        <Swiper
+          modules={[Pagination, A11y]}
+          spaceBetween={0}
+          slidesPerView={1}
+          pagination={pagination}
+          onSlideChange={(e) => {
+            setIsBeginning(e.isBeginning)
+            setIsEnd(e.isEnd)
+          }}
+          onSwiper={(e) => {
+            setSwiper(e)
+          }}
+          breakpoints={{
+            768: {
+              spaceBetween: 50,
+              slidesPerView: 2,
+            },
+          }}
+        >
           {projectData &&
             projectData.map((project) => (
               <SwiperSlide key={project.id}>
@@ -52,6 +91,26 @@ export default function Project() {
               </SwiperSlide>
             ))}
         </Swiper>
+        <div className={style.swiper_custom_container}>
+          <div
+            className={style.swiper_custom_pagination}
+            ref={paginationRef}
+          ></div>
+          <div className={style.swiper_navigation}>
+            <button disabled={isBeginning}>
+              <MdArrowBack
+                onClick={handlePrev}
+                direction='left'
+              />
+            </button>
+            <button disabled={isEnd}>
+              <MdArrowForward
+                onClick={handleNext}
+                direction='right'
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   )
