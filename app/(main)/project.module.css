@@ -11,9 +11,4 @@
 }
 
 .project_container {
-  display: flex;
-  flex-wrap: nowrap;
-  white-space: nowrap;
-  gap: 20px;
-  overflow-x: scroll;
 }

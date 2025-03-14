@@ -4,6 +4,9 @@ import style from './project.module.css'
 import { useEffect, useState } from 'react'
 import { WorkData } from '../api/project'
 import ProjectSlider from '@/components/ProjectSilder'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css'
 
 export default function Project() {
   const [projectData, setProjectData] = useState<WorkData[] | null>(null)
@@ -41,13 +44,14 @@ export default function Project() {
         project
       </motion.h1>
       <div className={style.project_container}>
-        {projectData &&
-          projectData.map((project) => (
-            <ProjectSlider
-              key={project.id}
-              {...project}
-            />
-          ))}
+        <Swiper>
+          {projectData &&
+            projectData.map((project) => (
+              <SwiperSlide key={project.id}>
+                <ProjectSlider {...project} />
+              </SwiperSlide>
+            ))}
+        </Swiper>
       </div>
     </section>
   )

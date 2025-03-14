@@ -12,7 +12,6 @@ export default function ProjectSlider(project: WorkData) {
           fill
           alt={project.title}
         />
-        dd
       </div>
     </div>
   )
