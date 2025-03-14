@@ -1,0 +1,28 @@
+.container {
+  flex: 0 0 auto;
+  width: 500px;
+  padding: 1.25em;
+  border: 2px solid rgb(220, 220, 220);
+  border-radius: 12px;
+
+  font-family: 'Pretendard';
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.img_container {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: relative;
+}
+
+.img_container::after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
