@@ -1,4 +1,5 @@
 'use client'
+import style from './page.module.css'
 import { useEffect, useRef, useState } from 'react'
 import Main from './(main)/main'
 import Project from './(main)/project'
@@ -6,6 +7,8 @@ import About from './(main)/about'
 import { handleWheel } from '@/utils/handleWheel'
 import Skills from './(main)/skills'
 import { useSearchParams } from 'next/navigation'
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
+import { handleButton } from '@/utils/handleButton'
 
 const pages = [
   { component: <Main />, key: 'main' },
@@ -20,10 +23,18 @@ export default function Home() {
   const [isScrolling, setIsScrolling] = useState(false)
   const searchParams = useSearchParams()
 
+  const mobileUp = () => {
+    handleButton('up', outerDivRef, setCurrentPage)
+  }
+
+  const mobileDown = () => {
+    handleButton('down', outerDivRef, setCurrentPage)
+  }
+
   // Wheel 이벤트 핸들러
   useEffect(() => {
     const wheelHandler = (e: WheelEvent) => {
-      if (isScrolling || window.innerWidth >= 768) return
+      if (isScrolling || window.innerWidth <= 768) return
       handleWheel(e, outerDivRef, setCurrentPage, setIsScrolling)
     }
 
@@ -60,11 +71,12 @@ export default function Home() {
   return (
     <div
       ref={outerDivRef}
-      style={{
-        height: '100vh',
-        overflowY: 'hidden',
-      }}
+      className={style.div_ref}
     >
+      <div className={style.navigation}>
+        <FaChevronUp onClick={mobileUp} />
+        <FaChevronDown onClick={mobileDown} />
+      </div>
       {pages.map(({ component, key }) => (
         <div
           key={key}

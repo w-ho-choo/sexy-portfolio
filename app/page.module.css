@@ -1,0 +1,24 @@
+.div_ref {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.navigation {
+  display: none;
+}
+
+@media all and (max-width: 768px) {
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1em;
+    padding: 0.5em 1em;
+    background-color: transparent;
+    z-index: 99;
+  }
+}

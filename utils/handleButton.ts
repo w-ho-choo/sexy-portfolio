@@ -1,14 +1,13 @@
 import { RefObject } from 'react'
 
-export const handleWheel = (
-  e: WheelEvent,
+export const handleButton = (
+  type: 'up' | 'down',
   outerDivRef: RefObject<HTMLDivElement | null>,
   setCurrentPage: (page: number) => void,
-  setIsScrolling: (scroll: boolean) => void,
 ) => {
-  const { deltaY } = e
+  console.log('hey')
   const outerDiv = outerDivRef.current
-  if (!outerDiv || window.innerWidth <= 768) return
+  if (!outerDiv || window.innerWidth >= 768) return
 
   const pageHeight = window.innerHeight
   const pages = Array.from(outerDiv.children).filter(
@@ -19,10 +18,7 @@ export const handleWheel = (
   const currentScroll = outerDiv.scrollTop
   const currentPageIndex = Math.round(currentScroll / pageHeight)
 
-  const SCROLL_SENSITIVITY = 10
-  if (Math.abs(deltaY) < SCROLL_SENSITIVITY) return
-
-  if (deltaY > 0 && currentPageIndex < pageCount - 1) {
+  if (type === 'down' && currentPageIndex < pageCount - 1) {
     // Scroll down
     outerDiv.scrollTo({
       top: (currentPageIndex + 1) * pageHeight,
@@ -30,7 +26,7 @@ export const handleWheel = (
       behavior: 'smooth',
     })
     setCurrentPage(currentPageIndex + 2) // 페이지는 1부터 시작
-  } else if (deltaY < 0 && currentPageIndex > 0) {
+  } else if (type === 'up' && currentPageIndex > 0) {
     // Scroll up
     outerDiv.scrollTo({
       top: (currentPageIndex - 1) * pageHeight,
@@ -39,7 +35,4 @@ export const handleWheel = (
     })
     setCurrentPage(currentPageIndex)
   }
-
-  setIsScrolling(true)
-  setTimeout(() => setIsScrolling(false), 1000)
 }

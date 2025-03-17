@@ -23,6 +23,7 @@ export default function ProjectImg({
             fill
             src={thumbnails}
             alt='시연 이미지'
+            unoptimized
           />
         </div>
       )
@@ -43,6 +44,7 @@ export default function ProjectImg({
                   fill
                   alt='시연 이미지'
                   loading='lazy'
+                  unoptimized
                 />
               </SwiperSlide>
             )
