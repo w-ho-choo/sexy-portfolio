@@ -21,7 +21,7 @@ export default function Home() {
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    const wheelHandler = (e: WheelEvent) => {
+    const wheelHandler = (e: WheelEvent | TouchEvent) => {
       if (isScrolling) return
       handleWheel(e, outerDivRef, setCurrentPage, setIsScrolling)
     }
@@ -29,11 +29,13 @@ export default function Home() {
     const outerDiv = outerDivRef.current
     if (outerDiv) {
       outerDiv.addEventListener('wheel', wheelHandler, { passive: false })
+      outerDiv.addEventListener('touchstart', wheelHandler, { passive: false })
     }
 
     return () => {
       if (outerDiv) {
         outerDiv.removeEventListener('wheel', wheelHandler)
+        outerDiv.removeEventListener('touchstart', wheelHandler)
       }
     }
   }, [isScrolling])
