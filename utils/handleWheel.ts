@@ -1,7 +1,7 @@
 import { RefObject } from 'react'
 
 export const handleWheel = (
-  e: WheelEvent | TouchEvent,
+  e: WheelEvent,
   outerDivRef: RefObject<HTMLDivElement | null>,
   setCurrentPage: (page: number) => void,
   setIsScrolling: (scroll: boolean) => void,
@@ -18,25 +18,24 @@ export const handleWheel = (
   const currentScroll = outerDiv.scrollTop
   const currentPageIndex = Math.round(currentScroll / pageHeight)
 
-  if (e instanceof WheelEvent) {
-    const { deltaY } = e
-    if (deltaY > 0 && currentPageIndex < pageCount - 1) {
-      // Scroll down
-      outerDiv.scrollTo({
-        top: (currentPageIndex + 1) * pageHeight,
-        left: 0,
-        behavior: 'smooth',
-      })
-      setCurrentPage(currentPageIndex + 2) // 페이지는 1부터 시작
-    } else if (deltaY < 0 && currentPageIndex > 0) {
-      // Scroll up
-      outerDiv.scrollTo({
-        top: (currentPageIndex - 1) * pageHeight,
-        left: 0,
-        behavior: 'smooth',
-      })
-      setCurrentPage(currentPageIndex)
-    }
+  const { deltaY } = e
+
+  if (deltaY > 0 && currentPageIndex < pageCount - 1) {
+    // Scroll down
+    outerDiv.scrollTo({
+      top: (currentPageIndex + 1) * pageHeight,
+      left: 0,
+      behavior: 'smooth',
+    })
+    setCurrentPage(currentPageIndex + 2) // 페이지는 1부터 시작
+  } else if (deltaY < 0 && currentPageIndex > 0) {
+    // Scroll up
+    outerDiv.scrollTo({
+      top: (currentPageIndex - 1) * pageHeight,
+      left: 0,
+      behavior: 'smooth',
+    })
+    setCurrentPage(currentPageIndex)
   }
 
   // 스크롤 상태 업데이트

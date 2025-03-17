@@ -21,7 +21,7 @@ export default function Home() {
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    const wheelHandler = (e: WheelEvent | TouchEvent) => {
+    const wheelHandler = (e: WheelEvent) => {
       if (window.innerWidth >= 768) {
         // 데스크탑에서만 풀스크롤 적용
         if (isScrolling) return
@@ -32,13 +32,11 @@ export default function Home() {
     const outerDiv = outerDivRef.current
     if (outerDiv) {
       outerDiv.addEventListener('wheel', wheelHandler, { passive: false })
-      outerDiv.addEventListener('touchstart', wheelHandler, { passive: false })
     }
 
     return () => {
       if (outerDiv) {
         outerDiv.removeEventListener('wheel', wheelHandler)
-        outerDiv.removeEventListener('touchstart', wheelHandler)
       }
     }
   }, [isScrolling])
