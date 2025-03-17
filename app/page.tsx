@@ -1,4 +1,3 @@
-'use client'
 import { useEffect, useRef, useState } from 'react'
 import Main from './(main)/main'
 import Project from './(main)/project'
@@ -22,8 +21,11 @@ export default function Home() {
 
   useEffect(() => {
     const wheelHandler = (e: WheelEvent | TouchEvent) => {
-      if (isScrolling) return
-      handleWheel(e, outerDivRef, setCurrentPage, setIsScrolling)
+      if (window.innerWidth >= 768) {
+        // 데스크탑에서만 풀스크롤 적용
+        if (isScrolling) return
+        handleWheel(e, outerDivRef, setCurrentPage, setIsScrolling)
+      }
     }
 
     const outerDiv = outerDivRef.current
@@ -59,7 +61,7 @@ export default function Home() {
       ref={outerDivRef}
       style={{
         height: '100vh',
-        overflowY: 'hidden',
+        overflowY: 'auto', // 기본 스크롤을 허용
       }}
     >
       {pages.map(({ component, key }) => (

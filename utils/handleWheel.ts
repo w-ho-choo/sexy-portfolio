@@ -7,81 +7,35 @@ export const handleWheel = (
   setIsScrolling: (scroll: boolean) => void,
 ) => {
   const outerDiv = outerDivRef.current
-  if (!outerDiv) return
+  if (!outerDiv || window.innerWidth < 768) return // 모바일에서 풀스크롤 비활성화
 
   const pageHeight = window.innerHeight
   const pages = Array.from(outerDiv.children).filter(
     (child) => child instanceof HTMLElement,
-  ) as HTMLElement[]
+  ) as HTMLElement[] // 페이지 요소들을 가져옴
   const pageCount = pages.length
 
   const currentScroll = outerDiv.scrollTop
   const currentPageIndex = Math.round(currentScroll / pageHeight)
 
-  // 화면 너비가 768px 이상일 경우만 풀페이지 스크롤
-  if (window.innerWidth >= 768) {
-    // 데스크탑에서만 풀페이지 스크롤 적용
-    if (e instanceof WheelEvent) {
-      const { deltaY } = e
-      if (deltaY > 0 && currentPageIndex < pageCount - 1) {
-        // Scroll down
-        outerDiv.scrollTo({
-          top: (currentPageIndex + 1) * pageHeight,
-          left: 0,
-          behavior: 'smooth',
-        })
-        setCurrentPage(currentPageIndex + 2) // 페이지는 1부터 시작
-      } else if (deltaY < 0 && currentPageIndex > 0) {
-        // Scroll up
-        outerDiv.scrollTo({
-          top: (currentPageIndex - 1) * pageHeight,
-          left: 0,
-          behavior: 'smooth',
-        })
-        setCurrentPage(currentPageIndex)
-      }
-    } else if (e instanceof TouchEvent) {
-      const touchStartY = e.touches[0].clientY // 터치 시작 위치
-      let touchEndY = 0
-
-      const handleTouchMove = (moveEvent: TouchEvent) => {
-        touchEndY = moveEvent.touches[0].clientY // 터치 이동 위치
-      }
-
-      const handleTouchEnd = () => {
-        const touchDelta = touchStartY - touchEndY
-
-        if (Math.abs(touchDelta) > 30) {
-          // 터치 이동 거리가 충분히 커야만 이동
-          const currentScroll = outerDiv.scrollTop
-          const currentPageIndex = Math.round(currentScroll / pageHeight)
-
-          if (touchDelta > 0 && currentPageIndex < pageCount - 1) {
-            // Scroll down
-            outerDiv.scrollTo({
-              top: (currentPageIndex + 1) * pageHeight,
-              left: 0,
-              behavior: 'smooth',
-            })
-            setCurrentPage(currentPageIndex + 2) // 페이지는 1부터 시작
-          } else if (touchDelta < 0 && currentPageIndex > 0) {
-            // Scroll up
-            outerDiv.scrollTo({
-              top: (currentPageIndex - 1) * pageHeight,
-              left: 0,
-              behavior: 'smooth',
-            })
-            setCurrentPage(currentPageIndex)
-          }
-        }
-      }
-
-      // 터치 이벤트 추가
-      if (e.touches.length === 1) {
-        // 한 손가락으로만 스크롤
-        outerDiv.addEventListener('touchmove', handleTouchMove)
-        outerDiv.addEventListener('touchend', handleTouchEnd)
-      }
+  if (e instanceof WheelEvent) {
+    const { deltaY } = e
+    if (deltaY > 0 && currentPageIndex < pageCount - 1) {
+      // Scroll down
+      outerDiv.scrollTo({
+        top: (currentPageIndex + 1) * pageHeight,
+        left: 0,
+        behavior: 'smooth',
+      })
+      setCurrentPage(currentPageIndex + 2) // 페이지는 1부터 시작
+    } else if (deltaY < 0 && currentPageIndex > 0) {
+      // Scroll up
+      outerDiv.scrollTo({
+        top: (currentPageIndex - 1) * pageHeight,
+        left: 0,
+        behavior: 'smooth',
+      })
+      setCurrentPage(currentPageIndex)
     }
   }
 
