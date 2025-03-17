@@ -29,7 +29,10 @@ const MY_SKILL = [
 
 export default function Skills() {
   return (
-    <section className={style.container}>
+    <section
+      className={style.container}
+      id='skills'
+    >
       <motion.h1
         animate={{ rotate: [0, 2, -1, 0] }}
         transition={{

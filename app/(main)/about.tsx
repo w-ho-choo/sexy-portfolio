@@ -38,7 +38,10 @@ const MY_INFO = [
 
 export default function About() {
   return (
-    <section className={style.container}>
+    <section
+      className={style.container}
+      id='about'
+    >
       <motion.h1
         animate={{ rotate: [0, 2, -1, 0] }}
         transition={{

@@ -11,7 +11,7 @@
 }
 
 .project_container {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .swiper_custom_container {
@@ -34,7 +34,7 @@
   border: none;
   line-height: 0;
 
-  font-size: 3em;
+  font-size: 2em;
   color: #000;
   cursor: pointer;
 }
@@ -42,4 +42,46 @@
 .swiper_navigation > button:disabled,
 .swiper_navigation > button[disabled] {
   color: rgb(220, 220, 220);
+}
+
+@media all and (max-width: 1280px) {
+  .container {
+    padding: 3em;
+  }
+
+  .title {
+    font-size: 3em;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .container {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 2em;
+  }
+
+  .swiper_custom_container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .swiper_custom_pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .swiper_navigation {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1.5em;
+    padding: 0 4em;
+  }
 }

@@ -22,6 +22,129 @@ export type WorkData = {
 export const projectData: WorkData[] = [
   {
     id: 0,
+    title: '코카카 랜딩사이트',
+    category: '퍼블리싱',
+    stack: ['html5', 'css', 'jquery'],
+    leadTime: null,
+    description: {
+      work: `
+      한국문화예술회관연합회 코카카의 회사 소개사이트 렌딩 사이트입니다.
+      <br/>슬라이드 쇼 처럼 보이게 작업을 하였으며 SPA 사이트들 처럼
+      <br/>버튼을 클릭할시 새로고침 없이 부드럽게 다른 화면으로 전환되게끔 마크업 작업과 jQuery를 이용하여 로직을 처리하였습니다.
+      <br/>전국연합회 소개 페이지에서는 지도에 마우스를 올리면 해당하는 지역의 지역기관들이 보이게끔 작업하였습니다.
+      <br/>또한 접속한 기기의 뷰포트 너비에 따라 모바일 사이트로 리다이렉팅되도록 처리하였으며
+      <br/>영문버전의 사이트도 작업하였습니다.`,
+      troubleShooting: '',
+    },
+    thumbnails: '/kocaca/kocaca-00.gif',
+    images: null,
+    isServiceNow: {
+      status: false,
+      comment: '위주 회사 사내 프로젝트로 서비스 주소 이용불가',
+    },
+    url: null,
+    isOnCompany: true,
+  },
+  {
+    id: 1,
+    title: '알스퀘어 X IBK기업은행 랜딩페이지',
+    category: '퍼블리싱',
+    stack: ['html5', 'css', 'jquery'],
+    leadTime: null,
+    description: {
+      work: `
+      사무실 부동산 중개 회사인 알스퀘어와 기업은행 제휴 이벤트 랜딩페이지입니다.
+      <br/>HTML, CSS, jQuery를 사용하여 작업을 하였습니다.
+      <br/>
+      <br/>php서버와의 form 데이터 전송을 중점적으로 두고 작업하였으며 입력폼 유효성 검사, 팝업 등의 작업을 진행하였습니다.`,
+      troubleShooting: '',
+    },
+    thumbnails: '/rsqure/rsqure-00.gif',
+    images: null,
+    isServiceNow: {
+      status: false,
+      comment: '이벤트 기간 종료로 서비스 이용불가',
+    },
+    url: null,
+    isOnCompany: true,
+  },
+  {
+    id: 2,
+    title: '트래디셔널 코리아 현장 랜딩페이지',
+    category: '퍼블리싱',
+    stack: ['html5', 'css', 'jquery'],
+    leadTime: null,
+    description: {
+      work: `
+      트래디셔널 코리아의 현장 이벤트 안내를 위한 랜딩페이지입니다.
+      <br/>HTML, CSS, jQuery를 사용하여 작업을 하였습니다.
+      <br/>SVG이미지를 이용하여 마치 팜플렛을 보는듯한 느낌으로 제작하였습니다.
+      <br/>PC에서는 좌측 네비게이션을 통하여 페이지를 이동할 수 있으며
+      <br/>접속한 기기의 뷰포트에 따라서 모바일 페이지로 리다이렉팅되도록 하였습니다.
+      <br/>지도 페이지에서 위치배너를 클릭시 해당하는 위치를 알려주는 구글지도로 넘어가게끔 처리하였습니다.`,
+      troubleShooting: '',
+    },
+    thumbnails: '/trk/trk-00.gif',
+    images: null,
+    isServiceNow: {
+      status: false,
+      comment: '현장 이벤트 사이트로 서비스 주소 이용불가',
+    },
+    url: null,
+    isOnCompany: true,
+  },
+  {
+    id: 3,
+    title: '더 뉴원 회사 소개 사이트',
+    category: '퍼블리싱',
+    stack: ['html5', 'css', 'jquery', 'gnuboard'],
+    leadTime: null,
+    description: {
+      work: `
+      더뉴원 회사 소개페이지입니다
+      <br/>HTML, CSS, jQuery, 그누보드를 사용하여 작업을 하였습니다.
+      <br/>슬라이드와 반응형 웹을 중점적으로 사용하여 개발하였습니다.
+      <br/>공지사항 페이지에서는 그누보드를 이용하여 출력, 관리자 계정으로 글쓰기 등을 구현하였으며
+      <br/>사업제안 페이지에서의 유효성 검사와 php 서버와의 폼 데이터 전송을 처리하였습니다.
+      <br/>회사소개 페이지에서 회사의 위치를 구글맵으로 보여줄수 있게끔 처리하였습니다.`,
+      troubleShooting: '',
+    },
+    thumbnails: '/thenew1/thenew1-00.gif',
+    images: null,
+    isServiceNow: {
+      status: true,
+      comment: '',
+    },
+    url: 'https://thenew1.co.kr/',
+    isOnCompany: true,
+  },
+  {
+    id: 4,
+    title: '트립 포레스트',
+    category: '퍼블리싱',
+    stack: ['html5', 'css', 'jquery', 'gnuboard'],
+    leadTime: null,
+    description: {
+      work: `
+      여행 플랫폼 트립포레스트 사이트입니다.
+      <br/>HTML, CSS, jQuery, 그누보드를 사용하여 작업을 하였습니다.
+      <br/>헤더에선 언어설정, 통화설정을 개발하였으며 메인 상단의 모달창 검색기능을 구현하였습니다.
+      <br/>상세페이지에서 이미지 상세보기와 날짜 설정, 옵션 설정 및 해당 가격 계산등의 기능을 구현하였습니다.
+      <br/>그외 결제 페이지, 로그인 팝업, 마이 페이지, 지원 페이지등을 마크업하였으며
+      <br/>반응형 웹도 작업하였습니다.`,
+      troubleShooting: '',
+    },
+    thumbnails: '/trip4rest/trip4rest.gif',
+    images: null,
+    isServiceNow: {
+      status: true,
+      comment: '',
+    },
+    url: 'http://www.trip4rest.com/',
+    isOnCompany: true,
+  },
+  {
+    id: 5,
     title: '오꾸꼬',
     category: '퍼블리싱',
     stack: ['html', 'css', 'jquery'],
@@ -29,8 +152,8 @@ export const projectData: WorkData[] = [
     description: {
       work: `
       오븐치킨 브랜드인 오X꼬의 가맹점 모집 랜딩사이트 작업물입니다. HTML, CSS, JS로 작업하였으며, <br/>AOS.js와 Splide.js같은 자바스크립트 라이브러리들을 주로 활용하여 제작하였습니다.
-      <br/>
-      <br/>또한 브라우저 크기에 따른 균일한 디자인이 보일수있도록 반응형 웹페이지 작업에 중요도를 높게하여 작업하였습니다.`,
+      <br/>최하단의 가맹문의 폼에서는 유효성 검사와 PHP 서버와 폼 전송을 위한 작업을 진행하였으며
+      <br/>브라우저 크기에 따른 균일한 디자인이 보일수있도록 반응형 웹페이지 작업에 중요도를 높게하여 작업하였습니다.`,
       troubleShooting: '',
     },
     thumbnails: '/okuko/okuko-01.png',
@@ -49,7 +172,7 @@ export const projectData: WorkData[] = [
     isOnCompany: true,
   },
   {
-    id: 1,
+    id: 6,
     title: '오름IMC',
     category: '퍼블리싱',
     stack: ['html5', 'css', 'jquery'],
@@ -76,129 +199,6 @@ export const projectData: WorkData[] = [
       comment: '',
     },
     url: 'https://orm-imc.co.kr/',
-    isOnCompany: true,
-  },
-  {
-    id: 2,
-    title: '코카카 랜딩사이트',
-    category: '퍼블리싱',
-    stack: ['html5', 'css', 'jquery'],
-    leadTime: null,
-    description: {
-      work: `
-      광고대행사인 오름IMC의 웹사이트 마크업 작업물입니다
-      <br/>HTML, CSS, jQuery를 사용하여 작업을 하였으며 슬라이드 쇼 처럼 보이길 원하여 그에 맞춰 디자인 & 퍼블리싱 작업을 진행하였습니다.
-      <br/>
-      <br/>jQuery를 이용하여 마치 파워포인트 문서처럼 버튼을 누르면 해당하는 페이지로 이동하게끔 함수를 작성하여 작업하였으며
-      <br/>전국 회원기관 페이지에서는 지도의 해당하는 영역에 마우스를 올리면 해당하는 지역의 기관들이 우측에 나오게 끔 작업하였습니다.
-      <br/>접속한 기기의 뷰포트에 따라 모바일 페이지로 리다이렉트 되게끔 작업하였으며 영문버전의 사이트도 제작하였습니다.`,
-      troubleShooting: '',
-    },
-    thumbnails: '/kocaca/kocaca-00.gif',
-    images: null,
-    isServiceNow: {
-      status: true,
-      comment: '',
-    },
-    url: null,
-    isOnCompany: true,
-  },
-  {
-    id: 3,
-    title: '알스퀘어 X IBK기업은행 랜딩페이지',
-    category: '퍼블리싱',
-    stack: ['html5', 'css', 'jquery'],
-    leadTime: null,
-    description: {
-      work: `
-      사무실 부동산 중개 회사인 알스퀘어와 기업은행 제휴 이벤트 랜딩페이지입니다.
-      <br/>HTML, CSS, jQuery를 사용하여 작업을 하였습니다.
-      <br/>
-      <br/>php서버와의 form 데이터 전송을 중점적으로 두고 작업하였으며 입력폼 유효성 검사, 팝업 등의 작업을 진행하였습니다.`,
-      troubleShooting: '',
-    },
-    thumbnails: '/rsqure/rsqure-00.gif',
-    images: null,
-    isServiceNow: {
-      status: true,
-      comment: '',
-    },
-    url: null,
-    isOnCompany: true,
-  },
-  {
-    id: 4,
-    title: '트래디셔널 코리아 현장 랜딩페이지',
-    category: '퍼블리싱',
-    stack: ['html5', 'css', 'jquery'],
-    leadTime: null,
-    description: {
-      work: `
-      트래디셔널 코리아의 현장 이벤트 안내를 위한 랜딩페이지입니다.
-      <br/>HTML, CSS, jQuery를 사용하여 작업을 하였습니다.
-      <br/>SVG이미지를 이용하여 마치 팜플렛을 보는듯한 느낌으로 제작하였습니다.
-      <br/>PC에서는 좌측 네비게이션을 통하여 페이지를 이동할 수 있으며
-      <br/>접속한 기기의 뷰포트에 따라서 모바일 페이지로 리다이렉팅되도록 하였습니다.
-      <br/>지도 페이지에서 위치배너를 클릭시 해당하는 위치를 알려주는 구글지도로 넘어가게끔 처리하였습니다.`,
-      troubleShooting: '',
-    },
-    thumbnails: '/trk/trk-00.gif',
-    images: null,
-    isServiceNow: {
-      status: true,
-      comment: '',
-    },
-    url: null,
-    isOnCompany: true,
-  },
-  {
-    id: 5,
-    title: '더 뉴원 회사 소개 사이트',
-    category: '퍼블리싱',
-    stack: ['html5', 'css', 'jquery', 'gnuboard'],
-    leadTime: null,
-    description: {
-      work: `
-      더뉴원 회사 소개페이지입니다
-      <br/>HTML, CSS, jQuery, 그누보드를 사용하여 작업을 하였습니다.
-      <br/>슬라이드와 반응형 웹을 중점적으로 사용하여 개발하였습니다.
-      <br/>공지사항 페이지에서는 그누보드를 이용하여 출력, 관리자 계정으로 글쓰기 등을 구현하였으며
-      <br/>사업제안 페이지에서의 유효성 검사와 php 서버와의 폼 데이터 전송을 처리하였습니다.
-      <br/>회사소개 페이지에서 회사의 위치를 구글맵으로 보여줄수 있게끔 처리하였습니다.`,
-      troubleShooting: '',
-    },
-    thumbnails: '/thenew1/thenew1-00.gif',
-    images: null,
-    isServiceNow: {
-      status: true,
-      comment: '',
-    },
-    url: null,
-    isOnCompany: true,
-  },
-  {
-    id: 6,
-    title: '트립 포레스트',
-    category: '퍼블리싱',
-    stack: ['html5', 'css', 'jquery', 'gnuboard'],
-    leadTime: null,
-    description: {
-      work: `
-      여행 플랫폼 트립포레스트 사이트입니다.
-      <br/>HTML, CSS, jQuery, 그누보드를 사용하여 작업을 하였습니다.
-      <br/>헤더에선 언어설정, 통화설정을 개발하였으며 메인 상단의 모달창 검색기능을 구현하였습니다.
-      <br/>상세페이지에서 이미지 상세보기와 날짜 설정, 옵션 설정 및 해당 가격 계산등의 기능을 구현하였습니다.
-      <br/>그외 결제 페이지, 로그인 팝업, 마이 페이지, 지원 페이지등을 마크업하였으며
-      <br/>반응형 웹도 작업하였습니다.`,
-      troubleShooting: '',
-    },
-    thumbnails: '/trip4rest/trip4rest.gif',
-    images: null,
-    isServiceNow: {
-      status: true,
-      comment: '',
-    },
-    url: null,
     isOnCompany: true,
   },
   {
@@ -277,7 +277,7 @@ export const projectData: WorkData[] = [
       'react',
       'zustand',
       'ky',
-      'tanstack-query',
+      'tanstackQuery',
     ],
     leadTime: '2024.11 ~ 2024.12',
     mainTech: ['API 통신', '게시글 CRUD', '프로필 CRUD', '실시간 채팅', '지도'],
@@ -310,8 +310,8 @@ export const projectData: WorkData[] = [
       '/catch-mi/catch-mi-13.gif',
     ],
     isServiceNow: {
-      status: false,
-      comment: '프로그래머스 AWS 배포 서버 지원종료',
+      status: true,
+      comment: '',
     },
     url: 'http://catchmi-web-page.s3-website.ap-northeast-2.amazonaws.com/',
     isOnCompany: false,

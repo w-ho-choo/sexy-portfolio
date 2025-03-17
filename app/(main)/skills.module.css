@@ -79,3 +79,90 @@
 .skill_list > div > p:not(:first-child) {
   margin-top: 1rem;
 }
+
+@media all and (max-width: 1280px) {
+  .container {
+    padding: 3em;
+  }
+
+  .title {
+    font-size: 3em;
+  }
+
+  .content_container {
+    margin-top: 30px;
+  }
+
+  .skill_description {
+    font-size: 1.25em;
+    word-break: keep-all;
+  }
+
+  .skill_container {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .skill_list {
+    width: calc(50% - 5px);
+    height: 50%;
+  }
+
+  .skill_list > h3 {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+  }
+
+  .skill_list > div > p {
+    font-size: 1em;
+  }
+
+  .skill_list > div > p:not(:first-child) {
+    margin-top: 0.75em;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .container {
+    padding: 1em;
+  }
+
+  .title {
+    font-size: 2em;
+  }
+
+  .content_container {
+    margin-top: 1em;
+  }
+
+  .skill_description {
+    font-size: 1em;
+    line-height: 1.25;
+  }
+
+  .skill_container {
+    gap: 5px;
+    margin-top: 1em;
+  }
+
+  .skill_list {
+    padding: 1em 0.5em;
+    width: calc(50% - 5px);
+    height: calc(50% - 5px);
+  }
+
+  .skill_list > h3 {
+    font-size: 1.125em;
+    margin-bottom: 0.75rem;
+    gap: 5px;
+  }
+
+  .skill_list > div > p {
+    font-size: 1em;
+  }
+
+  .skill_list > div > p:not(:first-child) {
+    margin-top: 0.5em;
+  }
+}

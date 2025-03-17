@@ -1,0 +1,16 @@
+.thumbnail_container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 40%;
+}
+
+.swiper_img_container > img,
+.thumbnail_container > img {
+  object-fit: contain;
+  display: block;
+}
+
+.swiper_img_container {
+  position: relative;
+  padding-bottom: 60%;
+}

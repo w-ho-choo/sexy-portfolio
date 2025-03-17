@@ -51,7 +51,10 @@ export default function Project() {
   }, [])
 
   return (
-    <section className={style.container}>
+    <section
+      className={style.container}
+      id='project'
+    >
       <motion.h1
         animate={{ rotate: [0, 2, -1, 0] }}
         transition={{
@@ -79,6 +82,10 @@ export default function Project() {
           }}
           breakpoints={{
             768: {
+              spaceBetween: 30,
+              slidesPerView: 2,
+            },
+            1280: {
               spaceBetween: 50,
               slidesPerView: 2,
             },

@@ -32,7 +32,10 @@ const WORD_LIST = [
 
 export default function Main() {
   return (
-    <section className={style.container}>
+    <section
+      className={style.container}
+      id='main'
+    >
       {WORD_LIST.map((word) => (
         <motion.div
           key={word.key}

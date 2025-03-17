@@ -27,3 +27,35 @@
 .justi_end {
   justify-content: flex-end;
 }
+
+@media all and (max-width: 1180px) {
+  .container {
+    gap: 1em;
+  }
+
+  .container > div > div {
+    font-size: 6em;
+  }
+}
+
+@media all and (max-width: 918px) {
+  .container {
+    padding: 2em;
+  }
+
+  .container > div > div {
+    font-size: 4em;
+  }
+}
+
+@media all and (max-width: 585px) {
+  .container {
+    padding: 1em;
+    gap: 2em;
+  }
+
+  .container > div > div {
+    font-size: 3em;
+    justify-content: flex-start !important;
+  }
+}
