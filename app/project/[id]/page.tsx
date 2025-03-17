@@ -48,7 +48,7 @@ const STACK_ICONS: { [key: string]: JSX.Element } = {
 export default async function ProjectPage({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }) {
   const { id } = await params
   const response = await fetch(
