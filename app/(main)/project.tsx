@@ -35,7 +35,9 @@ export default function Project() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('/api/project')
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/project`,
+        )
         if (!response.ok) {
           throw new Error('오류 발생')
         }

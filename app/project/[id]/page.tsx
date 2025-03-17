@@ -14,7 +14,6 @@ import Tanstack from '@/app/assets/stack/tanstack.svg'
 import Typescript from '@/app/assets/stack/typescript.svg'
 import Zustand from '@/app/assets/stack/zustand.svg'
 import { JSX } from 'react'
-import { MdArrowBack } from 'react-icons/md'
 import Image from 'next/image'
 import ProjectImg from '@/components/ProjectImg'
 
@@ -53,7 +52,9 @@ export default async function ProjectPage({
   params: { id: string }
 }) {
   const { id } = await params
-  const response = await fetch(`http://localhost:3000/api/project/${id}`)
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/project/${id}`,
+  )
   const data: WorkData = await response.json()
 
   const {
