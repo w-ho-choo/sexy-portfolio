@@ -3,9 +3,9 @@ import { projectData } from '@/app/api/project'
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } },
+  context: { params: { id: string } },
 ) {
-  const id = await params.id
+  const { id } = await context.params
 
   if (id) {
     const project = projectData.find((proj) => proj.id === Number(id))

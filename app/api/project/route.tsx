@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { projectData } from '../project'
 
-export function GET(req: NextRequest) {
+export function GET() {
   return NextResponse.json(projectData)
 }

@@ -14,7 +14,6 @@ import Tanstack from '@/app/assets/stack/tanstack.svg'
 import Typescript from '@/app/assets/stack/typescript.svg'
 import Zustand from '@/app/assets/stack/zustand.svg'
 import { JSX } from 'react'
-import Image from 'next/image'
 import ProjectImg from '@/components/ProjectImg'
 
 const STACK_ICONS: { [key: string]: JSX.Element } = {
@@ -58,7 +57,6 @@ export default async function ProjectPage({
   const data: WorkData = await response.json()
 
   const {
-    id: projectId,
     category,
     description,
     images,
@@ -71,20 +69,6 @@ export default async function ProjectPage({
     mainTech,
     thumbnails,
   } = data
-
-  const renderSlide = () => {
-    if (!images || images.length === 0) {
-      return (
-        <div className={style.thumbnail_container}>
-          <Image
-            src={thumbnails}
-            fill
-            alt={title}
-          />
-        </div>
-      )
-    }
-  }
 
   return (
     <div className={style.container}>
