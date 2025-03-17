@@ -20,13 +20,11 @@ export default function Home() {
   const [isScrolling, setIsScrolling] = useState(false)
   const searchParams = useSearchParams()
 
+  // Wheel 이벤트 핸들러
   useEffect(() => {
     const wheelHandler = (e: WheelEvent) => {
-      if (window.innerWidth >= 768) {
-        // 데스크탑에서만 풀스크롤 적용
-        if (isScrolling) return
-        handleWheel(e, outerDivRef, setCurrentPage, setIsScrolling)
-      }
+      if (isScrolling || window.innerWidth >= 768) return
+      handleWheel(e, outerDivRef, setCurrentPage, setIsScrolling)
     }
 
     const outerDiv = outerDivRef.current
@@ -41,17 +39,21 @@ export default function Home() {
     }
   }, [isScrolling])
 
+  // 페이지 URL 파라미터에 따른 스크롤 처리
   useEffect(() => {
     const pageParam = searchParams.get('page')
-    if (pageParam === 'project' && outerDivRef.current) {
-      setTimeout(() => {
-        outerDivRef.current?.scrollTo({
-          top: window.innerHeight * 3,
-          left: 0,
-          behavior: 'smooth',
-        })
-        setCurrentPage(4)
-      }, 100)
+    if (pageParam && outerDivRef.current) {
+      const pageIndex = pages.findIndex((page) => page.key === pageParam)
+      if (pageIndex !== -1) {
+        setTimeout(() => {
+          outerDivRef.current?.scrollTo({
+            top: window.innerHeight * pageIndex,
+            left: 0,
+            behavior: 'smooth',
+          })
+          setCurrentPage(pageIndex + 1) // 페이지는 1부터 시작
+        }, 100)
+      }
     }
   }, [searchParams])
 
@@ -60,7 +62,7 @@ export default function Home() {
       ref={outerDivRef}
       style={{
         height: '100vh',
-        overflowY: 'auto', // 기본 스크롤을 허용
+        overflowY: 'hidden',
       }}
     >
       {pages.map(({ component, key }) => (
