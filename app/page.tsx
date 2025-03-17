@@ -1,4 +1,4 @@
-'use cleint'
+'use client'
 import { useEffect, useRef, useState } from 'react'
 import Main from './(main)/main'
 import Project from './(main)/project'
