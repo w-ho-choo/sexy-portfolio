@@ -46,6 +46,17 @@ const STACK_ICONS: { [key: string]: JSX.Element } = {
   zustand: <Zustand key={'zustand'} />,
 }
 
+export async function generateStaticParams() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/project}`,
+  )
+  const projectList: WorkData[] = await response.json()
+
+  return projectList.map((project) => ({
+    id: project.id.toString(),
+  }))
+}
+
 export async function generateMetadata({
   params,
 }: {
