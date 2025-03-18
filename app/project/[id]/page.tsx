@@ -15,6 +15,7 @@ import Typescript from '@/app/assets/stack/typescript.svg'
 import Zustand from '@/app/assets/stack/zustand.svg'
 import { JSX } from 'react'
 import ProjectImg from '@/components/ProjectImg'
+import { Metadata } from 'next'
 
 const STACK_ICONS: { [key: string]: JSX.Element } = {
   axios: <Axios key={'axios'} />,
@@ -43,6 +44,22 @@ const STACK_ICONS: { [key: string]: JSX.Element } = {
     />
   ),
   zustand: <Zustand key={'zustand'} />,
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}): Promise<Metadata> {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/project/${(await params).id}`,
+  )
+  const data: WorkData = await response.json()
+
+  return {
+    title: data.title + ' | 포트폴리오',
+    description: '프로젝트 상세 페이지입니다.',
+  }
 }
 
 export default async function ProjectPage({
